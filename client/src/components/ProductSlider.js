@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const ProductSlider = () => {
+const ProductSlider = ({ data }) => {
   return <div>ProductSlider</div>;
 };
 
 export default ProductSlider;
+  
