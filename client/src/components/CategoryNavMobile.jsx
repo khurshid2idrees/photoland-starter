@@ -17,7 +17,7 @@ const CategoryNavMobile = ({ setCatnavMobile }) => {
       <div
         className="flex justify-end mb-8 cursor-pointer"
         onClick={() => setCatnavMobile(false)}
-      >
+      > 
         <FiX className="text-3xl " />
       </div>
       <div className="flex flex-col gap-y-8">
