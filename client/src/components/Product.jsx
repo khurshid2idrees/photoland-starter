@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="grad w-full h-[362px] rounded-[8px] overflow-hidden relative group">
+      <div className="grad w-full h-[362px] rounded-[8px] overflow-hidden relative group  ">
         {/* badge */}
         {product.attributes.isNew ? (
           <div className="absolute bg-accent text-primary text-[12px] font-extrabold uppercase top-4 right-4 px-2 rounded-full z-10">

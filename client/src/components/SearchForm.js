@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
+// icons
+import { FiSearch } from "react-icons/fi";
 
 const SearchForm = () => {
-  return <div>SearchForm</div>;
+  return <form className="input" type="text">SearchForm</form>;
 };
 
 export default SearchForm;
