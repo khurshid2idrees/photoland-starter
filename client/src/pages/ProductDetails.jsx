@@ -8,7 +8,7 @@ import RelatedProducts from "../components/RelatedProducts";
 const ProductDetails = () => {
   const { addToCart } = useContext(CartContext);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   // get product data base on the id
   const { data } = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
   if (!data) {
@@ -17,7 +17,7 @@ const ProductDetails = () => {
 
   // category title
   const categoryTitle = data[0].attributes.categories.data[0].attributes.title;
-  console.log(categoryTitle);
+  // console.log(categoryTitle);
 
   return (
     <div className="mb-16 pt-44 lg:pt-[30px] xl:pt-0">

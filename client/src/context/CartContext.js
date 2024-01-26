@@ -11,13 +11,36 @@ const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
 
   // add to cart
-  const addToCart = (data, id) => {
+  const addToCart = (item, id) => {
     const itemID = parseInt(id);
-    console.log(data);
+    const newItem = { ...item[0], amount: 1 };
+    setCart([...cart, newItem]);
+    // check if item is already in the cart
+    const cartItem = cart.find((item) => {
+      return item.id === itemID;
+    });
+
+    if (cartItem) {
+      const newCart = cart.map((item) => {
+        if (item.id === itemID) {
+          setAmount(cartItem.amount + 1);
+          return { ...item, amount: cartItem.amount + 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    } else {
+      setCart([...cart, newItem]);
+    }
+    // open the cart sidebar
+    setIsOpen(true);
   };
 
+  console.log(cart);
+
   return (
-    <CartContext.Provider value={{ isOpen, setIsOpen, addToCart }}>
+    <CartContext.Provider value={{ isOpen, setIsOpen, addToCart, cart }}>
       {children}
     </CartContext.Provider>
   );
