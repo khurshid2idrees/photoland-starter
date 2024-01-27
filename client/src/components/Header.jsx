@@ -18,7 +18,7 @@ import Cart from "../components/Cart";
 import { CartContext } from "../context/CartContext";
 
 const Header = () => {
-  const { isOpen, setIsOpen } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatnavMobile] = useState(false);
 
   return (
@@ -68,7 +68,7 @@ const Header = () => {
             <SlBag className=" text-2xl" />
             {/* amount */}
             <div className="bg-accent text-primary absolute w-[18px] h-[18px] rounded-full top-3 -right-1 text-[13px] flex justify-center items-center font-bold tracking-[-0.1em]">
-              2
+              {itemsAmount}
             </div>
           </div>
           {/* cart */}

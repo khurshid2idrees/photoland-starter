@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { CartContext } from "../context/CartContext";
 
 // components
-import CartItem from '../components/CartItem';
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const { setIsOpen, cart } = useContext(CartContext);
@@ -19,7 +19,7 @@ const Cart = () => {
         >
           <IoClose />
         </div>
-        <div>
+        <div className="flex flex-col gap-y-10 px-2">
           {cart.map((item) => {
             return <CartItem item={item} key={item.id} />;
           })}
