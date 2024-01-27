@@ -19,6 +19,15 @@ const CartProvider = ({ children }) => {
     setItemsAmount(amount);
   }, [cart]);
 
+  // cart total
+
+  useEffect(() => {
+    const total = cart.reduce((a, c) => {
+      return a + c.attributes.price * c.amount;
+    }, 0);
+    setTotal(total);
+  }, [cart]);
+
   // add to cart
   const addToCart = (item, id) => {
     const itemID = parseInt(id);
@@ -87,11 +96,28 @@ const CartProvider = ({ children }) => {
   // handle select
 
   const handleSelect = (e, id) => {
-    const value = e.target.value;
-    const cartItem = cart.find(item=>{
-      return item.id=== id;
-    })
-    console.log(cartItem);
+    const value = parseInt(e.target.value);
+    const cartItem = cart.find((item) => {
+      return item.id === id;
+    });
+    if (cartItem) {
+      const newCart = [...cart].map((item) => {
+        if (item.id === id) {
+          setAmount(value);
+          return { ...item, amount: value };
+        } else {
+          return item;
+        }
+      });
+
+      setCart(newCart);
+    }
+  };
+
+  // clear cart
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (
@@ -105,6 +131,8 @@ const CartProvider = ({ children }) => {
         itemsAmount,
         handleInput,
         handleSelect,
+        total,
+        clearCart
       }}
     >
       {children}
