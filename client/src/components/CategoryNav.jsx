@@ -10,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 const CategoryNav = () => {
   const { data } = useFetch("/categories");
 
-  
-
   return (
     <aside className="hidden xl:flex">
       <div className="bg-primary flex flex-col w-[286px] h-[500px] rounded-[8px] overflow-hidden ">
@@ -26,7 +24,7 @@ const CategoryNav = () => {
                 to={`/products/${category.id}`}
                 className="cursor-pointer uppercase"
                 key={category.id}
-                replace 
+                replace
               >
                 {category.attributes.title} cameras
               </Link>

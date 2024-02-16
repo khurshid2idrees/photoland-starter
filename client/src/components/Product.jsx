@@ -26,6 +26,7 @@ const Product = ({ product }) => {
             src={`http://localhost:1337${product.attributes.image.data.attributes.url}`}
             alt=""
           />
+          
         </div>
 
         {/* text */}

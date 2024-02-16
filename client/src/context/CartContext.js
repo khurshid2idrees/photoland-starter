@@ -132,7 +132,7 @@ const CartProvider = ({ children }) => {
         handleInput,
         handleSelect,
         total,
-        clearCart
+        clearCart,
       }}
     >
       {children}
